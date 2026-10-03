@@ -20,3 +20,22 @@ for (int i = 0; i < numeros.Length; i++)
     Console.WriteLine($"Posición {i}:{numeros[i]}");
 }
 Console.WriteLine();
+//4.Buscar un número y ver si existe en el arreglo
+Console.Write("\nIngresa el número que quieres buscar: ");
+int numbuscado = int.Parse(Console.ReadLine());
+bool numencontrado = false;
+
+for (int i = 0; i < numeros.Length; i++)
+{
+    if (numeros[i] == numbuscado)
+    {
+        Console.WriteLine("El número " + numbuscado + " SÍ existe, en la posición " + i + ".");
+        numencontrado = true;
+        break;
+    }
+}
+if (!numencontrado)
+{
+    Console.WriteLine("El número " + numbuscado + " NO existe en el arreglo.");
+}
+
