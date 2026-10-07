@@ -78,3 +78,66 @@ Console.WriteLine("\nLa suma total de los elementos es: " + sumaTotal);
 List<int> listaNumeros=new List<int>(){10,20,30,45,50};
 Console.WriteLine($"\nLista inicial:{string.Join(",",listaNumeros)}");
 
+//2.Creamos el menú
+int opcion = 0;
+while (opcion !=5)
+{
+    Console.WriteLine("\n----- MENÚ -----");
+    Console.WriteLine("1. Insertar un elemento al final");
+    Console.WriteLine("2. Eliminar un elemento por posición");
+    Console.WriteLine("3. Buscar un valor y mostrar su posición");
+    Console.WriteLine("4. Mostrar la lista actualizada");
+    Console.WriteLine("5. Salir");
+    Console.Write("Elige una opción: ");
+    opcion = int.Parse(Console.ReadLine());
+    
+    switch (opcion)
+    {
+        case 1:
+            Console.Write("Ingresa el valor a insertar:");
+            int valorNuevo=int.Parse(Console.ReadLine());
+            listaNumeros.Add(valorNuevo);
+            Console.WriteLine($"Se insertó el {valorNuevo} al final de la lista.");
+            break;
+        case 2:
+            
+            Console.Write($"Ingresa la posición a eliminar (1 a {listaNumeros.Count}): ");
+            int posEliminar = int.Parse(Console.ReadLine());
+            if (posEliminar >= 1 && posEliminar <= listaNumeros.Count)
+            {
+                listaNumeros.RemoveAt(posEliminar - 1);
+                Console.WriteLine($"Se eliminó el elemento de la posición {posEliminar}.");
+            }
+            else
+            {
+                Console.WriteLine("Posición no válida.");
+            }
+            break;
+        case 3:
+            
+            Console.Write("Ingresa el valor a buscar: ");
+            int valorBuscar = int.Parse(Console.ReadLine());
+            int posBuscar = listaNumeros.IndexOf(valorBuscar);
+            if (posBuscar != -1)
+                Console.WriteLine($"El valor {valorBuscar} está en la posición {posBuscar + 1}.");
+            else
+                Console.WriteLine($"El valor {valorBuscar} no está en la lista.");
+            break;
+        case 4:
+            Console.WriteLine("Lista actualizada:");
+            for (int i = 0; i < listaNumeros.Count; i++)
+            {
+                Console.WriteLine($"Posición {i + 1}: {listaNumeros[i]}");
+            }
+            break;
+        case 5:
+            Console.WriteLine("Saliendo del menú...");
+            break;
+
+        default:
+            Console.WriteLine("Opción no válida, intenta de nuevo.");
+            break;
+
+
+    }
+}       
