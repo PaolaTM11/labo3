@@ -72,3 +72,9 @@ for (int fila=0;fila<3;fila++)
     }
 }
 Console.WriteLine("\nLa suma total de los elementos es: " + sumaTotal);
+
+// ETAPA 3
+//1.Declaramos la lista dinámica con 4 elementos inciales
+List<int> listaNumeros=new List<int>(){10,20,30,45,50};
+Console.WriteLine($"\nLista inicial:{string.Join(",",listaNumeros)}");
+
