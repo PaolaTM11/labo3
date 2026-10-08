@@ -254,3 +254,23 @@ for (int i = 0; i < datosSeleccion.Count; i++)
     Console.Write($"{datosSeleccion[i]} ");
 }
 Console.WriteLine();
+
+//4.Comparamos los resultados de ambos algoritmos
+bool iguales = true;
+for (int i = 0; i < datosBurbuja.Count; i++)
+{
+    if (datosBurbuja[i] != datosSeleccion[i])
+    {
+        iguales = false;
+    }
+}
+
+Console.WriteLine();
+Console.WriteLine("--- COMPARACIÓN ---");
+if (iguales)
+    Console.WriteLine("Ambos algoritmos dieron la misma lista ordenada.");
+else
+    Console.WriteLine("Las listas ordenadas son diferentes.");
+
+Console.WriteLine($"Burbuja: {comparacionesBurbuja} comparaciones y {intercambiosBurbuja} intercambios.");
+Console.WriteLine($"Selección: {comparacionesSeleccion} comparaciones y {intercambiosSeleccion} intercambios.");
