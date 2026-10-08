@@ -206,3 +206,51 @@ for (int i = 0; i < datosBurbuja.Count; i++)
     Console.Write($"{datosBurbuja[i]} ");
 }
 Console.WriteLine();
+//3.Ordenamiento por selección
+List<int> datosSeleccion = new List<int>(datos);
+int comparacionesSeleccion = 0;
+int intercambiosSeleccion = 0;
+
+Console.WriteLine();
+Console.WriteLine("--- ORDENAMIENTO POR SELECCIÓN ---");
+Console.WriteLine("Antes:");
+for (int i = 0; i < datosSeleccion.Count; i++)
+{
+    Console.Write($"{datosSeleccion[i]} ");
+}
+Console.WriteLine();
+
+for (int pasada = 0; pasada < datosSeleccion.Count - 1; pasada++)
+{
+    int posMin = pasada;
+    for (int i = pasada + 1; i < datosSeleccion.Count; i++)
+    {
+        comparacionesSeleccion++;
+        if (datosSeleccion[i] < datosSeleccion[posMin])
+        {
+            posMin = i;
+        }
+    }
+
+    if (posMin != pasada)
+    {
+        int temp = datosSeleccion[pasada];
+        datosSeleccion[pasada] = datosSeleccion[posMin];
+        datosSeleccion[posMin] = temp;
+        intercambiosSeleccion++;
+    }
+
+    Console.Write($"Fin de la pasada {pasada + 1}: ");
+    for (int i = 0; i < datosSeleccion.Count; i++)
+    {
+        Console.Write($"{datosSeleccion[i]} ");
+    }
+    Console.WriteLine();
+}
+
+Console.WriteLine("Después:");
+for (int i = 0; i < datosSeleccion.Count; i++)
+{
+    Console.Write($"{datosSeleccion[i]} ");
+}
+Console.WriteLine();
