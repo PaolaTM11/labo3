@@ -166,3 +166,43 @@ for (int i = 0; i < datos.Count; i++)
     Console.Write($"{datos[i]} ");
 }
 Console.WriteLine();
+//2.Ordenamiento burbuja 
+List<int>datosBurbuja =new List<int>(datos);
+int comparacionesBurbuja=0;
+int intercambiosBurbuja=0;
+
+Console.WriteLine("-----ORDENAMIENTO BURBUJA------");
+Console.WriteLine("Antes:");
+for (int i=0;i<datosBurbuja.Count;i++)
+{
+    Console.WriteLine($"{datosBurbuja[i]}");
+}
+Console.WriteLine();
+
+for (int pasada=0;pasada<datosBurbuja.Count-1;pasada++)
+{
+    for (int i = 0; i < datosBurbuja.Count - 1 - pasada; i++)
+    {
+        comparacionesBurbuja++;
+        if (datosBurbuja[i]>datosBurbuja[i+1])
+       {
+           int temp=datosBurbuja[i];
+           datosBurbuja[i] = datosBurbuja[i + 1];
+           datosBurbuja[i + 1] = temp;
+           intercambiosBurbuja++;
+        }
+    }
+
+    Console.Write($"Fin de la pasada {pasada + 1}: ");
+    for (int i = 0; i < datosBurbuja.Count; i++)
+    {
+        Console.Write($"{datosBurbuja[i]} ");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine("Después:");
+for (int i = 0; i < datosBurbuja.Count; i++)
+{
+    Console.Write($"{datosBurbuja[i]} ");
+}
+Console.WriteLine();
