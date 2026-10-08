@@ -1,4 +1,4 @@
-﻿//ETAPA1
+﻿﻿//ETAPA1
 //Declarar e inicializar 
 int[] numeros = {56,12,6,76,42,4,21,34,31,61};
 
@@ -47,17 +47,17 @@ for (int fila=0;fila<3;fila++)
     for (int columna=0;columna<3;columna++)
     {
         Console.WriteLine($"Ingresa el valor para la posición [{fila},{columna}]");
-        matriz[fila,columna]=Convert.ToInt32(Console.ReadLine());
+        matriz[fila,columna]=int.Parse(Console.ReadLine());
         
     }
 }
 //3.Mostrar la matriz con un bucle anidado
-Console.WriteLine("\nMatriz ingresada:");
+Console.WriteLine("Matriz ingresada:");
 for (int fila=0;fila<3;fila++)
 {
     for (int columna=0;columna<3;columna++)
     {
-        Console.Write(matriz[fila,columna]+ "\t");
+        Console.Write($"{matriz[fila,columna]}");
     }
     Console.WriteLine();
 }
@@ -76,7 +76,12 @@ Console.WriteLine("\nLa suma total de los elementos es: " + sumaTotal);
 // ETAPA 3
 //1.Declaramos la lista dinámica con 4 elementos inciales
 List<int> listaNumeros=new List<int>(){10,20,30,45,50};
-Console.WriteLine($"\nLista inicial:{string.Join(",",listaNumeros)}");
+Console.WriteLine();
+Console.WriteLine("Lista inicial:");
+for (int i  = 0;i<listaNumeros.Count;i++)
+{
+    Console.WriteLine($"Posición {i + 1}: {listaNumeros[i]}");
+}
 
 //2.Creamos el menú
 int opcion = 0;
@@ -116,12 +121,22 @@ while (opcion !=5)
         case 3:
             
             Console.Write("Ingresa el valor a buscar: ");
-            int valorBuscar = int.Parse(Console.ReadLine());
-            int posBuscar = listaNumeros.IndexOf(valorBuscar);
-            if (posBuscar != -1)
-                Console.WriteLine($"El valor {valorBuscar} está en la posición {posBuscar + 1}.");
+            int valorObjetivo = int.Parse(Console.ReadLine());
+            int posEncontrada = -1;
+
+            for (int i = 0; i < listaNumeros.Count; i++)
+            {
+               if (listaNumeros[i] == valorObjetivo)
+               {
+                posEncontrada = i;
+                break;
+               }
+            }
+
+            if (posEncontrada != -1)
+            Console.WriteLine($"El valor {valorObjetivo} está en la posición {posEncontrada + 1}.");
             else
-                Console.WriteLine($"El valor {valorBuscar} no está en la lista.");
+            Console.WriteLine($"El valor {valorObjetivo} no está en la lista.");
             break;
         case 4:
             Console.WriteLine("Lista actualizada:");
@@ -141,3 +156,13 @@ while (opcion !=5)
 
     }
 }       
+//Etapa 4 
+//1.Creamos la lista de manera desordenada
+List<int> datos = new List<int>() { 64, 25, 12, 22, 11, 90, 3, 47 };
+Console.WriteLine();
+Console.WriteLine("Lista desordenada:");
+for (int i = 0; i < datos.Count; i++)
+{
+    Console.Write($"{datos[i]} ");
+}
+Console.WriteLine();
